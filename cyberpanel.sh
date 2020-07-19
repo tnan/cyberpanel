@@ -359,8 +359,8 @@ if [ ! -f $SWAP_FILE ] ; then
 	if [[ $TOTAL_SWAP -gt $TOTAL_RAM ]] || [[ $TOTAL_SWAP -eq $TOTAL_RAM ]] ; then
 		echo "SWAP check..."
 	else
-		if [[ $SET_SWAP -gt "2049000000" ]] ; then
-			SET_SWAP="2048000000"
+		if [[ $SET_SWAP -gt "2049" ]] ; then
+			SET_SWAP="2048"
 		else
 			echo "Checking SWAP..."
 		fi
@@ -458,7 +458,7 @@ fi
 memcached_installation() {
 if [[ $SERVER_OS == "CentOS" ]] ; then
 	yum install -y lsphp74-memcached lsphp73-memcached lsphp72-memcached lsphp71-memcached lsphp70-memcached lsphp56-pecl-memcached lsphp55-pecl-memcached lsphp54-pecl-memcached
-		if [[ $TOTAL_RAM -eq "2048000000" ]] || [[ $TOTAL_RAM -gt "2048000000" ]] ; then
+		if [[ $TOTAL_RAM -eq "2048" ]] || [[ $TOTAL_RAM -gt "2048" ]] ; then
 			yum groupinstall "Development Tools" -y
 			yum install autoconf automake zlib-devel openssl-devel expat-devel pcre-devel libmemcached-devel cyrus-sasl* -y
 			wget https://$DOWNLOAD_SERVER/litespeed/lsmcd.tar.gz
@@ -480,8 +480,13 @@ if [[ $SERVER_OS == "CentOS" ]] ; then
 		fi
 fi
 if [[ $SERVER_OS == "Ubuntu" ]] ; then
-	DEBIAN_FRONTEND=noninteractive apt install -y lsphp74-memcached lsphp73-memcached lsphp72-memcached lsphp71-memcached lsphp70-memcached
-		if [[ $TOTAL_RAM -eq "2048000000" ]] || [[ $TOTAL_RAM -gt "2048000000" ]] ; then
+	DEBIAN_FRONTEND=noninteractive apt install -y lsphp74-memcached
+	DEBIAN_FRONTEND=noninteractive apt install -y lsphp73-memcached
+	DEBIAN_FRONTEND=noninteractive apt install -y lsphp72-memcached
+	DEBIAN_FRONTEND=noninteractive apt install -y lsphp71-memcached
+	DEBIAN_FRONTEND=noninteractive apt install -y lsphp70-memcached
+	
+		if [[ $TOTAL_RAM -eq "2048" ]] || [[ $TOTAL_RAM -gt "2048" ]] ; then
 			DEBIAN_FRONTEND=noninteractive apt install build-essential zlib1g-dev libexpat1-dev openssl libssl-dev libsasl2-dev libpcre3-dev git -y
 			wget https://$DOWNLOAD/litespeed/lsmcd.tar.gz
 			tar xzvf lsmcd.tar.gz
@@ -516,7 +521,12 @@ if [[ $SERVER_OS == "CentOS" ]] ; then
 	yum install -y lsphp74-redis lsphp73-redis lsphp72-redis lsphp71-redis lsphp70-redis lsphp56-redis lsphp55-redis lsphp54-redis redis
 fi
 if [[ $SERVER_OS == "Ubuntu" ]] ; then
-	DEBIAN_FRONTEND=noninteractive apt install -y lsphp74-redis lsphp73-redis lsphp72-redis lsphp71-redis lsphp70-redis redis
+	DEBIAN_FRONTEND=noninteractive apt install -y lsphp74-redis
+	DEBIAN_FRONTEND=noninteractive apt install -y lsphp73-redis
+	DEBIAN_FRONTEND=noninteractive apt install -y lsphp72-redis
+	DEBIAN_FRONTEND=noninteractive apt install -y lsphp71-redis
+	DEBIAN_FRONTEND=noninteractive apt install -y lsphp70-redis
+	DEBIAN_FRONTEND=noninteractive apt install -y redis
 fi
 
 if ifconfig -a | grep inet6 ; then
@@ -914,7 +924,7 @@ fi
 #printf "%s" ""
 #read TMP_YN
 
-echo -e "\nPress Enter key to continue with latest version or Enter specific version such as: \e[31m1.9.4\e[39m , \e[31m1.9.5\e[39m, \e[31m2.0.2-dev\e[39m ...etc"
+echo -e "\nPress Enter key to continue with latest version or Enter specific version such as: \e[31m1.9.4\e[39m , \e[31m1.9.5\e[39m ...etc"
 printf "%s" ""
 read TMP_YN
 

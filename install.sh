@@ -6,8 +6,8 @@ yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce
 yum install -y docker-ce docker-ce-cli containerd.io
 systemctl enable docker
 systemctl start docker
-wget --directory-prefix=/usr/local/csf/ https://github.com/tnan/cyberpanel/raw/master/csfwebmin.tgz
-wget -P /etc/yum.repos.d/ https://github.com/tnan/cyberpanel/raw/master/webmin.repo
+wget --directory-prefix=/usr/local/csf/ https://github.com/tnan/cyberpanel/raw/master/webmin/csf/csfwebmin.tgz
+wget -P /etc/yum.repos.d/ https://github.com/tnan/cyberpanel/raw/master/webmin/webmin.repo
 yum -y install perl perl-Net-SSLeay openssl perl-IO-Tty perl-Encode-Detect
 cd ~
 wget https://download.webmin.com/jcameron-key.asc
@@ -15,8 +15,8 @@ rpm --import jcameron-key.asc
 yum -y install perl perl-Net-SSLeay openssl perl-IO-Tty perl-Encode-Detect
 yum install -y webmin
 yum install spamassassin -y
-wget https://github.com/tnan/cyberpanel/raw/master/local.cf -O /etc/mail/spamassassin/local.cf
-wget https://github.com/tnan/cyberpanel/raw/master/master.cf -O /etc/postfix/master.cf
+wget https://github.com/tnan/cyberpanel/raw/master/spamassassin/local.cf -O /etc/mail/spamassassin/local.cf
+wget https://github.com/tnan/cyberpanel/raw/master/postfix/master.cf -O /etc/postfix/master.cf
 groupadd spamd
 useradd -g spamd -s /bin/false -d /var/log/spamassassin spamd
 chown spamd:spamd /var/log/spamassassin

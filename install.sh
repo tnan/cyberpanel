@@ -1,6 +1,8 @@
+cd ~
 wget https://github.com/usmannasir/cyberpanel/raw/stable/cyberpanel.sh
 chmod +x cyberpanel.sh
 printf '1\n1\nY\nn\n\n\nd\nY\nY\nYes\n' | ./cyberpanel.sh
+cd ~
 yum install -y yum-utils device-mapper-persistent-data lvm2
 yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo
 yum install -y docker-ce docker-ce-cli containerd.io

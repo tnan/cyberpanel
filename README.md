@@ -3,7 +3,7 @@
 <details><summary>Optione 1: Cyberpanel</summary>
   
 ```python
-cd ~ && wget https://github.com/usmannasir/cyberpanel/raw/stable/cyberpanel.sh && chmod +x cyberpanel.sh && printf '1\n1\nY\nn\n\n\nd\nY\nY\nYes\n' | ./cyberpanel.sh
+cd ~ && wget https://github.com/usmannasir/cyberpanel/raw/stable/cyberpanel.sh && chmod +x cyberpanel.sh && printf '1\n1\nY\nn\n\n\nd\nY\nY\nYes\n' | ./cyberpanel.sh && echo done
 ```
 
 </details>
@@ -12,7 +12,7 @@ cd ~ && wget https://github.com/usmannasir/cyberpanel/raw/stable/cyberpanel.sh &
 <details><summary>Optione 2: Cyberpanel + Docker</summary>
   
 ```python
-cd ~ && wget https://github.com/usmannasir/cyberpanel/raw/stable/cyberpanel.sh && chmod +x cyberpanel.sh && printf '1\n1\nY\nn\n\n\nd\nY\nY\nYes\n' | ./cyberpanel.sh && cd ~ && yum install -y yum-utils device-mapper-persistent-data lvm2 && yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo && yum install -y docker-ce docker-ce-cli containerd.io && systemctl enable docker && systemctl start docker
+cd ~ && wget https://github.com/usmannasir/cyberpanel/raw/stable/cyberpanel.sh && chmod +x cyberpanel.sh && printf '1\n1\nY\nn\n\n\nd\nY\nY\nYes\n' | ./cyberpanel.sh && cd ~ && yum install -y yum-utils device-mapper-persistent-data lvm2 && yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo && yum install -y docker-ce docker-ce-cli containerd.io && systemctl enable docker && systemctl start docker && echo done
 ```
 
 </details>
@@ -21,7 +21,7 @@ cd ~ && wget https://github.com/usmannasir/cyberpanel/raw/stable/cyberpanel.sh &
 <details><summary>Optione 3: Cyberpanel + Docker + Webmin</summary>
   
 ```python
-cd ~ && wget https://github.com/usmannasir/cyberpanel/raw/stable/cyberpanel.sh && chmod +x cyberpanel.sh && printf '1\n1\nY\nn\n\n\nd\nY\nY\nYes\n' | ./cyberpanel.sh && cd ~ && yum install -y yum-utils device-mapper-persistent-data lvm2 && yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo && yum install -y docker-ce docker-ce-cli containerd.io && systemctl enable docker && systemctl start docker && wget --directory-prefix=/usr/local/csf/ https://raw.githubusercontent.com/tnan/cyberpanel/master/webmin/csf/csfwebmin.tgz && wget -P /etc/yum.repos.d/ https://raw.githubusercontent.com/tnan/cyberpanel/master/webmin/webmin.repo && yum -y install perl perl-Net-SSLeay openssl perl-IO-Tty perl-Encode-Detect && cd ~ && wget https://download.webmin.com/jcameron-key.asc && rpm --import jcameron-key.asc && yum -y install perl perl-Net-SSLeay openssl perl-IO-Tty perl-Encode-Detect && yum install -y webmin
+cd ~ && wget https://github.com/usmannasir/cyberpanel/raw/stable/cyberpanel.sh && chmod +x cyberpanel.sh && printf '1\n1\nY\nn\n\n\nd\nY\nY\nYes\n' | ./cyberpanel.sh && cd ~ && yum install -y yum-utils device-mapper-persistent-data lvm2 && yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo && yum install -y docker-ce docker-ce-cli containerd.io && systemctl enable docker && systemctl start docker && wget --directory-prefix=/usr/local/csf/ https://raw.githubusercontent.com/tnan/cyberpanel/master/webmin/csf/csfwebmin.tgz && wget -P /etc/yum.repos.d/ https://raw.githubusercontent.com/tnan/cyberpanel/master/webmin/webmin.repo && yum -y install perl perl-Net-SSLeay openssl perl-IO-Tty perl-Encode-Detect && cd ~ && wget https://download.webmin.com/jcameron-key.asc && rpm --import jcameron-key.asc && yum -y install perl perl-Net-SSLeay openssl perl-IO-Tty perl-Encode-Detect && yum install -y webmin && echo done
 ```
 
 </details>

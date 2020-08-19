@@ -46,7 +46,7 @@ cd ~ && wget https://github.com/usmannasir/cyberpanel/raw/stable/cyberpanel.sh &
 </details>
 
 
-<details><summary>Auto Option 5: Cyberpanel</summary>
+<details><summary>Option 5 + Log</summary>
   
 ```python
 cd ~ && wget https://github.com/tnan/cyberpanel/raw/master/screen.sh && chmod +x screen.sh && ./screen.sh

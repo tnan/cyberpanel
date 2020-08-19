@@ -38,6 +38,6 @@ chown spamd:spamd /var/log/spamassassin
 systemctl enable spamassassin
 systemctl start spamassassin
 systemctl restart postfix
-sh /root/cyberpanel/CPScripts/mailscannerinstaller.sh
+printf 'yes\n' | sh /root/cyberpanel/CPScripts/mailscannerinstaller.sh
 printf 'yes\nyes\n' | cpan Authen::OATH
 echo done

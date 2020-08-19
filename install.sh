@@ -40,4 +40,5 @@ systemctl start spamassassin
 systemctl restart postfix
 printf 'yes\n' | sh /root/cyberpanel/CPScripts/mailscannerinstaller.sh
 printf 'yes\nyes\n' | cpan Authen::OATH
-echo done
+exe_time="$(($SECONDS / 3600)) hrs $((($SECONDS / 60) % 60)) min $(($SECONDS % 60)) sec"
+echo "Done! Execution Time: $exe_time"

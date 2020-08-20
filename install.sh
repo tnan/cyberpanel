@@ -42,5 +42,6 @@ systemctl restart lsws
 cd ~
 sed -i 's#// ##g' /usr/local/CyberCP/public/phpmyadmin/config.inc.php
 sed -i 's#pmapass#pmapass#g' /usr/local/CyberCP/public/phpmyadmin/config.inc.php
+cd ~
 exe_time="$(($SECONDS / 3600)) hrs $((($SECONDS / 60) % 60)) min $(($SECONDS % 60)) sec"
 echo "Done! Execution Time: $exe_time"

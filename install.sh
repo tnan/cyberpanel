@@ -21,6 +21,10 @@ systemctl restart lsws
 cd ~
 sed -i 's#// ##g' /usr/local/CyberCP/public/phpmyadmin/config.inc.php
 sed -i 's#pmapass#pmapass#g' /usr/local/CyberCP/public/phpmyadmin/config.inc.php
+echo "" >> /usr/local/CyberCP/public/phpmyadmin/config.inc.php
+echo "/* Hide information_schema */" >> /usr/local/CyberCP/public/phpmyadmin/config.inc.php
+echo """$""cfg['Servers'][""$""i]['hide_db'] = 'information_schema';" >> /usr/local/CyberCP/public/phpmyadmin/config.inc.php
+echo "if(""$""_GET['db'] == 'information_schema')exit;" >> /usr/local/CyberCP/public/phpmyadmin/config.inc.php
 cd ~
 sed -i 's#max_execution_time = 30#max_execution_time = 6000#g' /usr/local/lsws/lsphp53/etc/php.ini
 sed -i 's#max_input_time = 60#max_input_time = 6000#g' /usr/local/lsws/lsphp53/etc/php.ini

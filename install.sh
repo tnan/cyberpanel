@@ -1,3 +1,4 @@
+su
 cd ~
 wget https://github.com/usmannasir/cyberpanel/raw/stable/cyberpanel.sh
 chmod +x cyberpanel.sh

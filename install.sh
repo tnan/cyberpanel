@@ -9,6 +9,19 @@ yum install -y docker-ce docker-ce-cli containerd.io
 systemctl enable docker
 systemctl start docker
 cd ~
+yum install spamassassin -y
+echo "required_score 5" >> /etc/mail/spamassassin/local.cf
+sed -i 's#smtp      inet  n       -       n       -       -       smtpd#smtp      inet  n       -       n       -       -       smtpd -o content_filter=spamassassin#g' /etc/postfix/master.cf
+echo 'spamassassin unix - n n - - pipe flags=R user=spamd argv=/usr/bin/spamc -e /usr/sbin/sendmail -oi -f ${sender} ${recipient}' >> /etc/postfix/master.cf
+groupadd spamd
+useradd -g spamd -s /bin/false -d /var/log/spamassassin spamd
+chown spamd:spamd /var/log/spamassassin
+systemctl enable spamassassin
+systemctl start spamassassin
+systemctl restart postfix
+printf 'yes\n' | sh /root/cyberpanel/CPScripts/mailscannerinstaller.sh
+printf 'yes\nyes\n' | cpan Authen::OATH
+cd ~
 wget --directory-prefix=/usr/local/csf/ https://raw.githubusercontent.com/tnan/cyberpanel/master/webmin/csf/csfwebmin.tgz
 wget -P /etc/yum.repos.d/ https://raw.githubusercontent.com/tnan/cyberpanel/master/webmin/webmin.repo
 wget https://download.webmin.com/jcameron-key.asc

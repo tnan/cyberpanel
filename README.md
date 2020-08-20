@@ -37,7 +37,7 @@ cd ~ && wget https://github.com/usmannasir/cyberpanel/raw/stable/cyberpanel.sh &
 </details>
 
 
-<details><summary>Optione 5: Cyberpanel + Docker + Webmin + All PHP Extentions + phpMyAdmin(storage) + Mailscanner(Spamassassin) + Authen::OATH</summary>
+<details><summary>Optione 5: Cyberpanel + Docker + Webmin + All PHP Extentions(custom) + phpMyAdmin(storage) + Mailscanner(Spamassassin) + Authen::OATH</summary>
  
  Without log
  

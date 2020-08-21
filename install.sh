@@ -92,6 +92,7 @@ systemctl enable spamassassin
 systemctl start spamassassin
 systemctl restart postfix
 printf 'yes\n' | sh /root/cyberpanel/CPScripts/mailscannerinstaller.sh
+sed -i 's#Sign Clean Messages = yes#Sign Clean Messages = no#g' /etc/MailScanner/MailScanner.conf
 printf 'yes\nyes\n' | cpan Authen::OATH
 cd ~
 exe_time="$(($SECONDS / 3600)) hrs $((($SECONDS / 60) % 60)) min $(($SECONDS % 60)) sec"

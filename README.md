@@ -1,5 +1,6 @@
 ## CentOS
 
+printf '1\n1\nY\nn\n\n\nd\nY\nY\nYes\n' | sh <(curl https://cyberpanel.net/install.sh || wget -O - https://cyberpanel.net/install.sh) | tee cyberpanel.log
 
 <details><summary>Optione 1: Cyberpanel</summary>
   
